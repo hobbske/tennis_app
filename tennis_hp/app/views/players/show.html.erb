@@ -1,119 +1,74 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <%= link_to players_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_player_path(@player), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show player</h1>
+</div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @player.first_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt>First name:</dt>
+  <dd><%= @player.first_name %></dd>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @player.last_name %>
-</p>
+  <dt>Last name:</dt>
+  <dd><%= @player.last_name %></dd>
 
-<p>
-  <strong>User name:</strong>
-  <%= @player.user_name %>
-</p>
+  <dt>User name:</dt>
+  <dd><%= @player.user_name %></dd>
 
-<p>
-  <strong>Password:</strong>
-  <%= @player.password %>
-</p>
+  <dt>Password:</dt>
+  <dd><%= @player.password %></dd>
 
-<p>
-  <strong>Photo:</strong>
-  <%= @player.photo %>
-</p>
+  <dt>Photo:</dt>
+  <dd><%= @player.photo %></dd>
 
-<p>
-  <strong>Team name:</strong>
-  <%= @player.team_name %>
-</p>
+  <dt>Team name:</dt>
+  <dd><%= @player.team_name %></dd>
 
-<p>
-  <strong>Role:</strong>
-  <%= @player.role %>
-</p>
+  <dt>Role:</dt>
+  <dd><%= @player.role %></dd>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @player.gender %>
-</p>
+  <dt>Gender:</dt>
+  <dd><%= @player.gender %></dd>
 
-<p>
-  <strong>Age category:</strong>
-  <%= @player.age_category %>
-</p>
+  <dt>Age category:</dt>
+  <dd><%= @player.age_category %></dd>
 
-<p>
-  <strong>Skill level:</strong>
-  <%= @player.skill_level %>
-</p>
+  <dt>Skill level:</dt>
+  <dd><%= @player.skill_level %></dd>
 
-<p>
-  <strong>Record ind:</strong>
-  <%= @player.record_ind %>
-</p>
+  <dt>Record ind:</dt>
+  <dd><%= @player.record_ind %></dd>
 
-<p>
-  <strong>Record team:</strong>
-  <%= @player.record_team %>
-</p>
+  <dt>Record team:</dt>
+  <dd><%= @player.record_team %></dd>
 
-<p>
-  <strong>Phone num:</strong>
-  <%= @player.phone_num %>
-</p>
+  <dt>Phone num:</dt>
+  <dd><%= @player.phone_num %></dd>
 
-<p>
-  <strong>Phone type:</strong>
-  <%= @player.phone_type %>
-</p>
+  <dt>Email:</dt>
+  <dd><%= @player.email %></dd>
 
-<p>
-  <strong>Email:</strong>
-  <%= @player.email %>
-</p>
+  <dt>Day pref1:</dt>
+  <dd><%= @player.day_pref1 %></dd>
 
-<p>
-  <strong>Day pref1:</strong>
-  <%= @player.day_pref1 %>
-</p>
+  <dt>Time pref1:</dt>
+  <dd><%= @player.time_pref1 %></dd>
 
-<p>
-  <strong>Time pref1:</strong>
-  <%= @player.time_pref1 %>
-</p>
+  <dt>Time pref2:</dt>
+  <dd><%= @player.time_pref2 %></dd>
 
-<p>
-  <strong>Day pref2:</strong>
-  <%= @player.day_pref2 %>
-</p>
+  <dt>Remember token:</dt>
+  <dd><%= @player.remember_token %></dd>
 
-<p>
-  <strong>Time pref2:</strong>
-  <%= @player.time_pref2 %>
-</p>
+  <dt>Created at:</dt>
+  <dd><%= @player.created_at %></dd>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @player.password_digest %>
-</p>
+  <dt>Updated at:</dt>
+  <dd><%= @player.updated_at %></dd>
 
-<p>
-  <strong>Remember token:</strong>
-  <%= @player.remember_token %>
-</p>
-
-<p>
-  <strong>Created at:</strong>
-  <%= @player.created_at %>
-</p>
-
-<p>
-  <strong>Updated at:</strong>
-  <%= @player.updated_at %>
-</p>
-
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+</dl>
