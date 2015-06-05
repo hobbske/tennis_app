@@ -1,0 +1,109 @@
+<%= form_for(@player) do |f| %>
+  <% if @player.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
+
+      <ul>
+      <% @player.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :user_name %><br>
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %><br>
+    <%= f.text_field :photo %>
+  </div>
+  <div class="field">
+    <%= f.label :team_name %><br>
+    <%= f.text_field :team_name %>
+  </div>
+  <div class="field">
+    <%= f.label :role %><br>
+    <%= f.text_field :role %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :age_category %><br>
+    <%= f.text_field :age_category %>
+  </div>
+  <div class="field">
+    <%= f.label :skill_level %><br>
+    <%= f.text_field :skill_level %>
+  </div>
+  <div class="field">
+    <%= f.label :record_ind %><br>
+    <%= f.number_field :record_ind %>
+  </div>
+  <div class="field">
+    <%= f.label :record_team %><br>
+    <%= f.number_field :record_team %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_num %><br>
+    <%= f.text_field :phone_num %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_type %><br>
+    <%= f.text_field :phone_type %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :day_pref1 %><br>
+    <%= f.text_field :day_pref1 %>
+  </div>
+  <div class="field">
+    <%= f.label :time_pref1 %><br>
+    <%= f.text_field :time_pref1 %>
+  </div>
+  <div class="field">
+    <%= f.label :day_pref2 %><br>
+    <%= f.text_field :day_pref2 %>
+  </div>
+  <div class="field">
+    <%= f.label :time_pref2 %><br>
+    <%= f.text_field :time_pref2 %>
+  </div>
+  <div class="field">
+    <%= f.label :password_digest %><br>
+    <%= f.text_field :password_digest %>
+  </div>
+  <div class="field">
+    <%= f.label :remember_token %><br>
+    <%= f.text_field :remember_token %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br>
+    <%= f.datetime_select :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :updated_at %><br>
+    <%= f.datetime_select :updated_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

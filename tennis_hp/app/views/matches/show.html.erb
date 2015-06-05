@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Match datetime:</strong>
+  <%= @match.match_datetime %>
+</p>
+
+<p>
+  <strong>Match loc name:</strong>
+  <%= @match.match_loc_name %>
+</p>
+
+<p>
+  <strong>Match note:</strong>
+  <%= @match.match_note %>
+</p>
+
+<p>
+  <strong>Match opp:</strong>
+  <%= @match.match_opp %>
+</p>
+
+<p>
+  <strong>Match outcome:</strong>
+  <%= @match.match_outcome %>
+</p>
+
+<p>
+  <strong>Match score:</strong>
+  <%= @match.match_score %>
+</p>
+
+<p>
+  <strong>Match loc address:</strong>
+  <%= @match.match_loc_address %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @match.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @match.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_match_path(@match) %> |
+<%= link_to 'Back', matches_path %>

@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>User name</th>
+      <th>Password</th>
+      <th>Photo</th>
+      <th>Team name</th>
+      <th>Role</th>
+      <th>Gender</th>
+      <th>Age category</th>
+      <th>Skill level</th>
+      <th>Record ind</th>
+      <th>Record team</th>
+      <th>Phone num</th>
+      <th>Phone type</th>
+      <th>Email</th>
+      <th>Day pref1</th>
+      <th>Time pref1</th>
+      <th>Day pref2</th>
+      <th>Time pref2</th>
+      <th>Password digest</th>
+      <th>Remember token</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.first_name %></td>
+        <td><%= player.last_name %></td>
+        <td><%= player.user_name %></td>
+        <td><%= player.password %></td>
+        <td><%= player.photo %></td>
+        <td><%= player.team_name %></td>
+        <td><%= player.role %></td>
+        <td><%= player.gender %></td>
+        <td><%= player.age_category %></td>
+        <td><%= player.skill_level %></td>
+        <td><%= player.record_ind %></td>
+        <td><%= player.record_team %></td>
+        <td><%= player.phone_num %></td>
+        <td><%= player.phone_type %></td>
+        <td><%= player.email %></td>
+        <td><%= player.day_pref1 %></td>
+        <td><%= player.time_pref1 %></td>
+        <td><%= player.day_pref2 %></td>
+        <td><%= player.time_pref2 %></td>
+        <td><%= player.password_digest %></td>
+        <td><%= player.remember_token %></td>
+        <td><%= player.created_at %></td>
+        <td><%= player.updated_at %></td>
+        <td><%= link_to 'Show', player %></td>
+        <td><%= link_to 'Edit', edit_player_path(player) %></td>
+        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Player', new_player_path %>

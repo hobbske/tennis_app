@@ -1,0 +1,53 @@
+<%= form_for(@match) do |f| %>
+  <% if @match.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@match.errors.count, "error") %> prohibited this match from being saved:</h2>
+
+      <ul>
+      <% @match.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :match_datetime %><br>
+    <%= f.datetime_select :match_datetime %>
+  </div>
+  <div class="field">
+    <%= f.label :match_loc_name %><br>
+    <%= f.text_field :match_loc_name %>
+  </div>
+  <div class="field">
+    <%= f.label :match_note %><br>
+    <%= f.text_area :match_note %>
+  </div>
+  <div class="field">
+    <%= f.label :match_opp %><br>
+    <%= f.text_field :match_opp %>
+  </div>
+  <div class="field">
+    <%= f.label :match_outcome %><br>
+    <%= f.text_field :match_outcome %>
+  </div>
+  <div class="field">
+    <%= f.label :match_score %><br>
+    <%= f.number_field :match_score %>
+  </div>
+  <div class="field">
+    <%= f.label :match_loc_address %><br>
+    <%= f.text_field :match_loc_address %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br>
+    <%= f.datetime_select :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :updated_at %><br>
+    <%= f.datetime_select :updated_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
