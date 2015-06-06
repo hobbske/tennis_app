@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Player
   <% end %>
-  <h1>Listing players</h1>
+  <h1>HP Players List</h1>
 </div>
 
 <div class="table-responsive">
@@ -64,4 +64,16 @@
       <% end %>
     </tbody>
   </table>
+
+<h4>Import Players</h4>
+<%= form_tag import_players_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import" %>
+<% end %>
+
 </div>
+
+
+
+
+

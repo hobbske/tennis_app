@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Location
   <% end %>
-  <h1>Listing locations</h1>
+  <h1>All Match Locations</h1>
 </div>
 
 <div class="table-responsive">
@@ -29,15 +29,14 @@
         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
 
-      <%= form_tag locations_path, :method => :get do %>
-
-      <% end %>
 
     </tbody>
   </table>
 
-  <p>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search Near", :name => nil %>
-  </p>
+  <%= form_tag locations_path, :method => :get do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search Near", :name => nil %>
+    </p>
+  <% end %>
 </div>

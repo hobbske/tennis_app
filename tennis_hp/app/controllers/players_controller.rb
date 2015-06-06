@@ -17,6 +17,12 @@ class PlayersController < ApplicationController
     @player = Player.new
   end
 
+  # GET /players/new - via import
+  def import
+    Player.import(params[:file])
+    redirect_to root_url, notice: "Players imported successfully."
+  end
+
   # GET /players/1/edit
   def edit
   end
@@ -61,6 +67,7 @@ class PlayersController < ApplicationController
     end
   end
 
+############## PRIVATE SECTION
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_player
@@ -71,4 +78,5 @@ class PlayersController < ApplicationController
     def player_params
       params.require(:player).permit(:first_name, :last_name, :user_name, :password, :photo, :team_name, :role, :gender, :age_category, :skill_level, :record_ind, :record_team, :phone_num, :email, :day_pref1, :time_pref1, :time_pref2, :remember_token, :created_at, :updated_at)
     end
+
 end

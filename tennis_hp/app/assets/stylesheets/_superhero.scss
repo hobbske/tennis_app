@@ -33,6 +33,7 @@
 .btn {
 
   font-weight: 300;
+  margin-top: 25px;
 }
 
 .btn-default {
@@ -108,7 +109,7 @@ table,
   font-size: 12px;
 
   a:not(.btn) {
-    color: #fff;
+    color: #0000ff;
     text-decoration: underline;
   }
 
@@ -123,6 +124,7 @@ table,
   > tbody > tr > td,
   > tfoot > tr > td {
     border-color: transparent;
+    text-align: center;
   }
  }
 
