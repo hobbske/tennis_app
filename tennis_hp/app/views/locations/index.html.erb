@@ -4,7 +4,78 @@
     New Location
   <% end %>
   <h1>All Match Locations</h1>
+
 </div>
+
+  <!-- Google Maps and Places API (https://www.youtube.com/watch?v=keO6egndYrE) -->
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+
+<!-- Map Creation -->
+<h4>Current Location</h4>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+  var map;
+  var service;
+
+  // Manage the results returned from additional tennis court search
+  function handleSearchResults(results, status) {
+      console.log(results);
+      for(var i = 0; i < results.length; i++) {
+
+        var marker = new google.maps.Marker({
+            position: results[i].geometry.location,
+            map: map
+        });
+      }
+  }
+
+  // Locates all tennis courts, within the bounds of the map.
+  function performSearch() {
+    var request = {
+        bounds: map.getBounds(),
+        name: "Tennis",
+        icon: "tennis_ball_sm.png"
+
+    }
+  service.nearbySearch(request, handleSearchResults);
+
+  }
+
+  function initialize(location) {
+    console.log(location);
+    var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
+    var mapProp = {
+                  center: currentLocation,
+                  zoom: 14,
+                  mapTypeId: google.maps.MapTypeId.HYBRID
+    };
+
+    map = new google.maps.Map(document.getElementById("map-canvas"), mapProp);
+
+    var marker = new google.maps.Marker({
+                                        position: currentLocation,
+                                        map: map,
+                                        title: 'You Are Here'
+    });
+
+    service = new google.maps.places.PlacesService(map);
+
+    // Ensures the map bounds are initialized before the search is performed.
+    google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch);
+  }
+
+  $(document).ready(function() {
+    navigator.geolocation.getCurrentPosition(initialize);
+  });
+
+</script>
+
+<div id="map-canvas"></div>
+<!-- END Google Map - VERSION2 -->
+
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
@@ -28,9 +99,8 @@
         <td><%= link_to 'Edit', edit_location_path(location) %></td>
         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
-
-
     </tbody>
+
   </table>
 
   <%= form_tag locations_path, :method => :get do %>
@@ -39,4 +109,5 @@
       <%= submit_tag "Search Near", :name => nil %>
     </p>
   <% end %>
+
 </div>
