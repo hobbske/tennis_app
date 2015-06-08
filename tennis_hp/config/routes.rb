@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'players#index'
   resources :players do
     collection { post :import}
   end
