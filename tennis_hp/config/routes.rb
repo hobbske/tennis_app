@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  root to: 'players#index'
-
+  root 'home#index'
   resources :players do
     collection { post :import}
   end
 
   resources :matches
-
   resources :locations
+  resources :home
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
