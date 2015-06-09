@@ -27,7 +27,8 @@
 
         var marker = new google.maps.Marker({
             position: results[i].geometry.location,
-            map: map
+            map: map,
+            icon: "t_racket.png"
         });
       }
   }
@@ -37,8 +38,7 @@
     var request = {
         bounds: map.getBounds(),
         name: "Tennis",
-        icon: "tennis_ball_sm.png"
-
+        icon: "t_racket.png"
     }
   service.nearbySearch(request, handleSearchResults);
 
@@ -50,7 +50,7 @@
     var mapProp = {
                   center: currentLocation,
                   zoom: 14,
-                  mapTypeId: google.maps.MapTypeId.HYBRID
+                  mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
     map = new google.maps.Map(document.getElementById("map-canvas"), mapProp);
@@ -65,6 +65,20 @@
 
     // Ensures the map bounds are initialized before the search is performed.
     google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch);
+
+    // redo search when the refresh button is clicked
+    $('#refresh').click(performSearch);
+
+    // traffic layer
+    var trafficLayer = new google.maps.TrafficLayer();
+    $('#toggle_traffic').click(function () {
+        if (trafficLayer.getMap()) {
+            trafficLayer.setMap(null);
+        }
+        else {
+            trafficLayer.setMap(map);
+        }
+    });
   }
 
   $(document).ready(function() {
@@ -74,6 +88,9 @@
 </script>
 
 <div id="map-canvas"></div>
+<button id="refresh">Refresh</button>
+<button id="toggle_traffic">Traffic</button>
+<button id="toggle_weather">Weather</button>
 <!-- END Google Map - VERSION2 -->
 
 
