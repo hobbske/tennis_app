@@ -19,6 +19,7 @@
 
   var map;
   var service;
+  var currentLocation;
 
   // Manage the results returned from additional tennis court search
   function handleSearchResults(results, status) {
@@ -46,10 +47,10 @@
 
   function initialize(location) {
     console.log(location);
-    var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
+    currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
     var mapProp = {
                   center: currentLocation,
-                  zoom: 14,
+                  zoom: 13,
                   mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
@@ -112,9 +113,9 @@
             <td><%= location.address %></td>
             <td><%= location.latitude %></td>
             <td><%= location.longitude %></td>
-            <td><%= link_to 'Show', location %></td>
+            <td><%= link_to 'View', location %></td>
         <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>
 
