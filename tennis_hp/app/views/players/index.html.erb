@@ -10,26 +10,19 @@
   <table class="table-hover">
     <thead>
       <tr>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>User name</th>
-            <th>Password</th>
             <th>Photo</th>
-            <th>Team name</th>
-            <th>Role</th>
-            <th>Gender</th>
-            <th>Age category</th>
-            <th>Skill level</th>
-            <th>Record ind</th>
-            <th>Record team</th>
-            <th>Phone num</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Team(s)</th>
+            <th>Level</th>
+            <th>Win/Loss</th>
+            <th>Phone</th>
             <th>Email</th>
-            <th>Day pref1</th>
-            <th>Time pref1</th>
-            <th>Time pref2</th>
-            <th>Remember token</th>
-            <th>Created at</th>
-            <th>Updated at</th>
+            <th>P1 Day</th>
+            <th>P1 Time</th>
+            <th>P2 Day</th>
+            <th>P2 Time</th>
+
             <th></th>
         <th></th>
         <th></th>
@@ -38,29 +31,21 @@
 
     <tbody>
       <%= content_tag_for(:tr, @players) do |player| %>
+            <td><%= player.photo %></td>
             <td><%= player.first_name %></td>
             <td><%= player.last_name %></td>
-            <td><%= player.user_name %></td>
-            <td><%= player.password %></td>
-            <td><%= player.photo %></td>
             <td><%= player.team_name %></td>
-            <td><%= player.role %></td>
-            <td><%= player.gender %></td>
-            <td><%= player.age_category %></td>
             <td><%= player.skill_level %></td>
             <td><%= player.record_ind %></td>
-            <td><%= player.record_team %></td>
             <td><%= player.phone_num %></td>
             <td><%= player.email %></td>
             <td><%= player.day_pref1 %></td>
             <td><%= player.time_pref1 %></td>
+            <td><%= player.day_pref2 %></td>
             <td><%= player.time_pref2 %></td>
-            <td><%= player.remember_token %></td>
-            <td><%= player.created_at %></td>
-            <td><%= player.updated_at %></td>
-            <td><%= link_to 'Show', player %></td>
+            <td><%= link_to 'Detail', player %></td>
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
-        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', player, method: :delete, data: { confirm: 'Are you sure? Deletes cannot be undone.' } %></td>
       <% end %>
     </tbody>
   </table>

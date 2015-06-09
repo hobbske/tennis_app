@@ -32,13 +32,17 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <!-- <li class="active"><a href="home#home_index">Home</a></li> -->
-          <li><a href="#about">About</a></li>
+          <li><a href="home#index">Home</a></li>
           <li><a href="players#index">Players</a></li>
           <li><a href="locations#index">Locations</a></li>
           <li><a href="matches#index">Matches</a></li>
           <li><a href="#contact">Contact</a></li>
+
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
         </ul>
       </div>
+      <!-- <em> Welcome,  <%= @current_user_email %></em> -->
     </div>
   </nav>
   <div class="container">

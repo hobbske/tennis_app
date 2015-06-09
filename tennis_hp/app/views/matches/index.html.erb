@@ -3,25 +3,23 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Match
   <% end %>
-  <h1>All Tennis Matches</h1>
+  <h1>Your Tennis Matches</h1>
 </div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-            <th>Match datetime</th>
-            <th>Match loc name</th>
-            <th>Match note</th>
-            <th>Match opp</th>
-            <th>Match outcome</th>
-            <th>Match score</th>
-            <th>Match loc address</th>
-            <th>Created at</th>
-            <th>Updated at</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Opponent</th>
+            <th>Score</th>
+            <th>Win/Loss</th>
+            <th>Note</th>
+            <th>User Email</th>
             <th></th>
-        <th></th>
-        <th></th>
+            <th></th>
+            <th></th>
       </tr>
     </thead>
 
@@ -29,16 +27,17 @@
       <%= content_tag_for(:tr, @matches) do |match| %>
             <td><%= match.match_datetime %></td>
             <td><%= match.match_loc_name %></td>
-            <td><%= match.match_note %></td>
             <td><%= match.match_opp %></td>
-            <td><%= match.match_outcome %></td>
             <td><%= match.match_score %></td>
-            <td><%= match.match_loc_address %></td>
-            <td><%= match.created_at %></td>
-            <td><%= match.updated_at %></td>
-            <td><%= link_to 'Show', match %></td>
-        <td><%= link_to 'Edit', edit_match_path(match) %></td>
-        <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= match.match_outcome %></td>
+            <td><%= match.match_note %></td>
+            <td><%= match.user.email %></td>
+            <td><%= link_to 'Details', match %></td>
+            <!-- only allow editting and deleting by the user that created the entry -->
+            <% if match.user == current_user %>
+              <td><%= link_to 'Edit', edit_match_path(match) %></td>
+              <td><%= link_to 'Delete', match, method: :delete, data: { confirm: 'Are you sure you want to delete this record?' } %></td>
+            <% end %>
       <% end %>
     </tbody>
   </table>

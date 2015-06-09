@@ -1,5 +1,6 @@
 class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /matches
   # GET /matches.json
@@ -14,7 +15,7 @@ class MatchesController < ApplicationController
 
   # GET /matches/new
   def new
-    @match = Match.new
+    @match = current_user.matches.build
   end
 
   # GET /matches/1/edit
@@ -24,7 +25,7 @@ class MatchesController < ApplicationController
   # POST /matches
   # POST /matches.json
   def create
-    @match = Match.new(match_params)
+    @match = current_user.matches.build(match_params)
 
     respond_to do |format|
       if @match.save
