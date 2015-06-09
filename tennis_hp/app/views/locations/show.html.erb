@@ -69,11 +69,11 @@
       }
   }
 
-  // Locates all tennis courts, within the bounds of the map.
+  // Locates current tennis court.
   function performSearch() {
     var request = {
         bounds: map.getBounds(),
-        name: "Sharon Lester Tennis Center",
+        name: "#{@location.address}",
         icon: "t_racket.png"
     }
   service.nearbySearch(request, handleSearchResults);

@@ -3,14 +3,14 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Player
   <% end %>
-  <h1>HP Players List</h1>
+  <h1>Player Roster</h1>
 </div>
 
 <div class="table-responsive">
   <table class="table-hover">
     <thead>
       <tr>
-            <th>Photo</th>
+            <th></th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Team(s)</th>
@@ -18,10 +18,8 @@
             <th>Win/Loss</th>
             <th>Phone</th>
             <th>Email</th>
-            <th>P1 Day</th>
-            <th>P1 Time</th>
-            <th>P2 Day</th>
-            <th>P2 Time</th>
+            <th>1st Preference</th>
+            <th>2nd Preference</th>
 
             <th></th>
         <th></th>
@@ -31,7 +29,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @players) do |player| %>
-            <td><%= player.photo %></td>
+            <td><%= image_tag player.photo, :class => 'thumbs' %></td>
             <td><%= player.first_name %></td>
             <td><%= player.last_name %></td>
             <td><%= player.team_name %></td>
@@ -39,10 +37,8 @@
             <td><%= player.record_ind %></td>
             <td><%= player.phone_num %></td>
             <td><%= player.email %></td>
-            <td><%= player.day_pref1 %></td>
-            <td><%= player.time_pref1 %></td>
-            <td><%= player.day_pref2 %></td>
-            <td><%= player.time_pref2 %></td>
+            <td><%= player.day_pref1 %> (<%= player.time_pref1 %>)</td>
+            <td><%= player.day_pref2 %> (<%= player.time_pref2 %>)</td>
             <td><%= link_to 'Detail', player %></td>
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
         <td><%= link_to 'Delete', player, method: :delete, data: { confirm: 'Are you sure? Deletes cannot be undone.' } %></td>
@@ -50,11 +46,15 @@
     </tbody>
   </table>
 
-<h4>Import Players</h4>
-<%= form_tag import_players_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import" %>
-<% end %>
+  <div class = "import">
+  <h3>Import Players</h3>
+  <%= form_tag import_players_path, multipart: true do %>
+      <%= file_field_tag :file %> <br>
+      <%= submit_tag "Import" %>
+  <% end %>
+  </div>
+
+  <br>
 
 </div>
 

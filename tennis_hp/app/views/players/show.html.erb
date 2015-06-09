@@ -7,7 +7,7 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show player</h1>
+  <h1>Profile: <strong><%= @player.first_name %> <%= @player.last_name %></strong></h1>
 </div>
 
 <dl class="dl-horizontal">
@@ -23,9 +23,6 @@
 
   <dt>User name:</dt>
   <dd><%= @player.user_name %></dd>
-
-  <dt>Password:</dt>
-  <dd><%= @player.password %></dd>
 
   <dt>Team name:</dt>
   <dd><%= @player.team_name %></dd>
@@ -48,28 +45,22 @@
   <dt>Record team:</dt>
   <dd><%= @player.record_team %></dd>
 
-  <dt>Phone num:</dt>
+  <dt>Phone:</dt>
   <dd><%= @player.phone_num %></dd>
 
   <dt>Email:</dt>
   <dd><%= @player.email %></dd>
 
-  <dt>Day pref1:</dt>
-  <dd><%= @player.day_pref1 %></dd>
+  <dt>1st Preference:</dt>
+  <dd><%= @player.day_pref1 %> (<%= @player.time_pref1 %>)</dd>
 
-  <dt>Time pref1:</dt>
-  <dd><%= @player.time_pref1 %></dd>
+  <dt>2nd Preference:</dt>
+  <dd><%= @player.day_pref2 %> (<%= @player.time_pref2 %>)</dd>
 
-  <dt>Time pref2:</dt>
-  <dd><%= @player.time_pref2 %></dd>
-
-  <dt>Remember token:</dt>
-  <dd><%= @player.remember_token %></dd>
-
-  <dt>Created at:</dt>
+  <dt>Date Created:</dt>
   <dd><%= @player.created_at %></dd>
 
-  <dt>Updated at:</dt>
+  <dt>Last Modified:</dt>
   <dd><%= @player.updated_at %></dd>
 
 </dl>

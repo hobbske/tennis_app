@@ -1,4 +1,14 @@
 // Custom Styles
+.thumbs {
+  width: 40px;
+  align: center;
+}
+
+.import {
+  padding: 20px;
+  border-width: 1.5;
+}
+
 #map-canvas {
   height: 400px;
   width: 100%;
@@ -134,7 +144,8 @@ table,
   > tbody > tr > td,
   > tfoot > tr > td {
     border-color: transparent;
-    text-align: center;
+    text-align: left;
+    padding: 10px;
   }
  }
 
