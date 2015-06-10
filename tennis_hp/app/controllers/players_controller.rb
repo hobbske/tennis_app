@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /players
   # GET /players.json
@@ -14,7 +15,7 @@ class PlayersController < ApplicationController
 
   # GET /players/new
   def new
-    @player = Player.new
+    @player = current_user.players.build
   end
 
   # GET /players/new - via import
@@ -30,7 +31,7 @@ class PlayersController < ApplicationController
   # POST /players
   # POST /players.json
   def create
-    @player = Player.new(player_params)
+    @player = current_user.players.build(player_params)
 
     respond_to do |format|
       if @player.save
