@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Player
   <% end %>
-  <h1>Player Roster</h1>
+  <h3>Player Roster</h3>
 </div>
 
 <div class="table-responsive">
@@ -29,6 +29,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @players) do |player| %>
+            <td><%= link_to 'Detail', player %></td>
             <td><%= image_tag player.photo, :class => 'thumbs' %></td>
             <td><%= player.first_name %></td>
             <td><%= player.last_name %></td>
@@ -39,7 +40,7 @@
             <td><%= player.record_ind %></td>
             <td><%= player.day_pref1 %> (<%= player.time_pref1 %>)</td>
             <td><%= player.day_pref2 %> (<%= player.time_pref2 %>)</td>
-            <td><%= link_to 'Detail', player %></td>
+
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
         <td><%= link_to 'Delete', player, method: :delete, data: { confirm: 'Are you sure? Deletes cannot be undone.' } %></td>
       <% end %>

@@ -3,14 +3,13 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Location
   <% end %>
-  <h1>Match Locations</h1>
+  <h3>Match Locations</h3>
 
 </div>
 
   <!-- Google Maps and Places API (https://www.youtube.com/watch?v=keO6egndYrE) -->
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
 
-<h4>Current Location</h4>
 
 <!-- jquery for google maps api -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -29,7 +28,7 @@
         var marker = new google.maps.Marker({
             position: results[i].geometry.location,
             map: map,
-            icon: "t_racket.png"
+            icon: "tennisball_marker.png"
         });
       }
   }
@@ -38,7 +37,7 @@
     var request = {
         bounds: map.getBounds(),
         name: "Tennis",
-        icon: "t_racket.png"
+        icon: "tennisball_marker.png"
     }
   service.nearbySearch(request, handleSearchResults);
 
