@@ -13,11 +13,11 @@
             <th></th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Phone</th>
+            <th>Email</th>
             <th>Team(s)</th>
             <th>Level</th>
             <th>Win/Loss</th>
-            <th>Phone</th>
-            <th>Email</th>
             <th>1st Preference</th>
             <th>2nd Preference</th>
 
@@ -32,11 +32,11 @@
             <td><%= image_tag player.photo, :class => 'thumbs' %></td>
             <td><%= player.first_name %></td>
             <td><%= player.last_name %></td>
+            <td><a href= "tel:"player.phone_num> <%= player.phone_num %></a></td>
+            <td><%= player.email %></td>
             <td><%= player.team_name %></td>
             <td><%= player.skill_level %></td>
             <td><%= player.record_ind %></td>
-            <td><%= player.phone_num %></td>
-            <td><%= player.email %></td>
             <td><%= player.day_pref1 %> (<%= player.time_pref1 %>)</td>
             <td><%= player.day_pref2 %> (<%= player.time_pref2 %>)</td>
             <td><%= link_to 'Detail', player %></td>

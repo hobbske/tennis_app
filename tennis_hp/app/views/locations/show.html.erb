@@ -7,7 +7,7 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Location Details</h1>
+  <h1><%= @location.address %></h1>
 </div>
 
 <dl class="dl-horizontal">
@@ -30,7 +30,7 @@
     <div class="address-panel">
         <h4>Current Location</h4>
         <address>
-          <%= 'enter current location here' %>
+          <%= :currentLocation %>
         </address>
     </div>
 
@@ -42,11 +42,11 @@
         </address>
 </div> -->
 
-  <!-- Google Maps and Places API (https://www.youtube.com/watch?v=keO6egndYrE) -->
+  <!-- Google Maps and Places API -->
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
 
 <!-- Map Creation -->
-<h4>Current Location</h4>
+<h4>Driving Directions</h4>
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -73,7 +73,7 @@
   function performSearch() {
     var request = {
         bounds: map.getBounds(),
-        name: "#{@location.address}",
+        name: location.address,
         icon: "t_racket.png"
     }
   service.nearbySearch(request, handleSearchResults);
@@ -128,3 +128,7 @@
 <button id="toggle_traffic">Traffic</button>
 <button id="toggle_weather">Weather</button>
 <!-- END Google Map - VERSION2 -->
+
+
+
+
