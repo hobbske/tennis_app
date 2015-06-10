@@ -22,6 +22,12 @@ class LocationsController < ApplicationController
     @location = current_user.locations.build
   end
 
+  # GET /locations/new - via import
+  def import
+    Location.import(params[:file])
+    redirect_to root_url, notice: "Locations imported successfully."
+  end
+
   # GET /locations/1/edit
   def edit
   end

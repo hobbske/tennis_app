@@ -8,20 +8,20 @@
 </div>
 
   <!-- Google Maps and Places API (https://www.youtube.com/watch?v=keO6egndYrE) -->
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
 
-<!-- Map Creation -->
 <h4>Current Location</h4>
 
-<!-- jQuery -->
+<!-- jquery for google maps api -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript">
 
+  // Initialize variables outside of the functions for multiple use
   var map;
   var service;
   var currentLocation;
 
-  // Manage the results returned from additional tennis court search
+  // Plots the search results on the map and adds the tennis racket icon
   function handleSearchResults(results, status) {
       console.log(results);
       for(var i = 0; i < results.length; i++) {
@@ -33,8 +33,7 @@
         });
       }
   }
-
-  // Locates all tennis courts, within the bounds of the map.
+  // Searches for all places (with tennis in the name), within the bounds of the map.
   function performSearch() {
     var request = {
         bounds: map.getBounds(),
@@ -48,30 +47,28 @@
   function initialize(location) {
     console.log(location);
     currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
+    // Map Properties
     var mapProp = {
                   center: currentLocation,
                   zoom: 13,
                   mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-
+    // Generates Map
     map = new google.maps.Map(document.getElementById("map-canvas"), mapProp);
-
+    // Adds current location marker
     var marker = new google.maps.Marker({
                                         position: currentLocation,
                                         map: map,
                                         title: 'You Are Here'
     });
-
-
     service = new google.maps.places.PlacesService(map);
 
     // Ensures the map bounds are initialized before the search is performed.
     google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch);
-
     // redo search when the refresh button is clicked
     $('#refresh').click(performSearch);
 
-    // traffic layer
+    // logic to add and remove traffic info when button is clicked
     var trafficLayer = new google.maps.TrafficLayer();
     $('#toggle_traffic').click(function () {
         if (trafficLayer.getMap()) {
@@ -82,20 +79,19 @@
         }
     });
   }
-
+  // waits for page to render before initializing
   $(document).ready(function() {
     navigator.geolocation.getCurrentPosition(initialize);
   });
-
 </script>
+  <!-- Map feature buttons -->
+  <div id="map-canvas"></div>
+  <button id="refresh">Refresh</button>
+  <button id="toggle_traffic">Traffic</button>
+  <button id="toggle_weather">Weather</button>
+<!-- END Google Map -->
 
-<div id="map-canvas"></div>
-<button id="refresh">Refresh</button>
-<button id="toggle_traffic">Traffic</button>
-<button id="toggle_weather">Weather</button>
-<!-- END Google Map - VERSION2 -->
-
-
+<!-- Locations Table -->
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>
@@ -121,12 +117,21 @@
     </tbody>
 
   </table>
-
+  <!-- Search Near feature -->
   <%= form_tag locations_path, :method => :get do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
       <%= submit_tag "Search Near", :name => nil %>
     </p>
   <% end %>
+
+  <!-- Data import button -->
+  <div class = "import">
+  <h3>Import Locations</h3>
+  <%= form_tag import_locations_path, multipart: true do %>
+      <%= file_field_tag :file %> <br>
+      <%= submit_tag "Import" %>
+  <% end %>
+  </div>
 
 </div>
