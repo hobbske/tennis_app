@@ -36,11 +36,12 @@
             <td><%= player.last_name %></td>
             <td><a href="tel:<%= player.phone_num %>"> <%= player.phone_num %></a></td>
             <td><a href="mailto:<%=player.email%>?subject=Do you want to play tennis on <%=player.day_pref1%> (<%=player.time_pref1%>) or <%=player.day_pref2%> (<%=player.time_pref2%>)?"> <%= player.email %></a></td>
+            <td><%= player.day_pref1 %> (<%= player.time_pref1 %>)</td>
+            <td><%= player.day_pref2 %> (<%= player.time_pref2 %>)</td>
             <td><%= player.team_name %></td>
             <td><%= player.skill_level %></td>
             <td><%= player.record_ind %></td>
-            <td><%= player.day_pref1 %> (<%= player.time_pref1 %>)</td>
-            <td><%= player.day_pref2 %> (<%= player.time_pref2 %>)</td>
+
 
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
         <td><%= link_to 'Delete', player, method: :delete, data: { confirm: 'Are you sure? Deletes cannot be undone.' } %></td>
