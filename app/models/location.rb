@@ -4,9 +4,8 @@ class Location < ActiveRecord::Base
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-      location = find_by_address(row["address"]) || new
-      location = row.to_hash
-      location.save
+      # location = find_by_address(row["address"]) || new(row.to_hash)
+      Location.create! row.to_hash
     end
   end
 

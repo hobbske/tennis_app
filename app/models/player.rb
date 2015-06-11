@@ -7,5 +7,5 @@ class Player < ActiveRecord::Base
       Player.create! row.to_hash
     end
   end
-  end
+end
 

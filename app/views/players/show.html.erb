@@ -21,8 +21,17 @@
   <dt>Last name:</dt>
   <dd><%= @player.last_name %></dd>
 
-  <dt>User name:</dt>
-  <dd><%= @player.user_name %></dd>
+  <dt>Phone:</dt>
+  <dd><%= @player.phone_num %></dd>
+
+  <dt>Email:</dt>
+  <dd><%= @player.email %></dd>
+
+  <dt>1st Preference:</dt>
+  <dd><%= @player.day_pref1 %> (<%= @player.time_pref1 %>)</dd>
+
+  <dt>2nd Preference:</dt>
+  <dd><%= @player.day_pref2 %> (<%= @player.time_pref2 %>)</dd>
 
   <dt>Team name:</dt>
   <dd><%= @player.team_name %></dd>
@@ -45,17 +54,7 @@
   <dt>Record team:</dt>
   <dd><%= @player.record_team %></dd>
 
-  <dt>Phone:</dt>
-  <dd><%= @player.phone_num %></dd>
 
-  <dt>Email:</dt>
-  <dd><%= @player.email %></dd>
-
-  <dt>1st Preference:</dt>
-  <dd><%= @player.day_pref1 %> (<%= @player.time_pref1 %>)</dd>
-
-  <dt>2nd Preference:</dt>
-  <dd><%= @player.day_pref2 %> (<%= @player.time_pref2 %>)</dd>
 
   <dt>Date Created:</dt>
   <dd><%= @player.created_at %></dd>
