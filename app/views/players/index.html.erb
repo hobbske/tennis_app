@@ -35,7 +35,7 @@
             <td><%= player.first_name %></td>
             <td><%= player.last_name %></td>
             <td><a href="tel:<%= player.phone_num %>"> <%= player.phone_num %></a></td>
-            <td><%= player.email %></td>
+            <td><%= mail_to player.email, player.email %></td>
             <td><%= player.team_name %></td>
             <td><%= player.skill_level %></td>
             <td><%= player.record_ind %></td>
