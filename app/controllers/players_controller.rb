@@ -15,13 +15,13 @@ class PlayersController < ApplicationController
 
   # GET /players/new
   def new
-    @player = current_user.players.build
+    @player = Player.new
   end
 
   # GET /players/new - via import
   def import
     Player.import(params[:file])
-    redirect_to root_url, notice: "Players imported successfully."
+    redirect_to players_path, notice: "Players imported successfully."
   end
 
   # GET /players/1/edit

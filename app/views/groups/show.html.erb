@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Group name:</strong>
+  <%= @group.group_name %>
+</p>
+
+<p>
+  <strong>Season:</strong>
+  <%= @group.season %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @group.year %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @group.gender %>
+</p>
+
+<p>
+  <strong>Skill level:</strong>
+  <%= @group.skill_level %>
+</p>
+
+<p>
+  <strong>Age category:</strong>
+  <%= @group.age_category %>
+</p>
+
+<p>
+  <strong>Roster max:</strong>
+  <%= @group.roster_max %>
+</p>
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

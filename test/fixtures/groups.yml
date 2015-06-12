@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group_name: MyString
+  season: MyString
+  year: MyString
+  gender: MyString
+  skill_level: MyString
+  age_category: MyString
+  roster_max: 1
+
+two:
+  group_name: MyString
+  season: MyString
+  year: MyString
+  gender: MyString
+  skill_level: MyString
+  age_category: MyString
+  roster_max: 1

@@ -3,7 +3,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Location
   <% end %>
-  <h3>Tennis Locations Near You</h3>
+  <h4>Locations w/in 10 miles</h4>
 
 </div>
 
@@ -49,7 +49,7 @@
     // Map Properties
     var mapProp = {
                   center: currentLocation,
-                  zoom: 13,
+                  zoom: 11,
                   mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     // Generates Map
@@ -66,6 +66,21 @@
     google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch);
     // redo search when the refresh button is clicked
     $('#refresh').click(performSearch);
+
+    // draw radius circle on map
+    var circleOptions = {
+      strokecolor: "#B0E57C",
+      strokeOpacity: 0.8,
+      strokeWeight: 1.5,
+      fillColor: "#B0E57C",
+      fillOpacity: 0.35,
+      map: map,
+      center: currentLocation,
+      radius: 16093,
+      title: "10 mile radius"
+    };
+    circle = new google.maps.Circle(circleOptions);
+
 
     // logic to add and remove traffic info when button is clicked
     var trafficLayer = new google.maps.TrafficLayer();
@@ -91,6 +106,7 @@
 <!-- END Google Map -->
 
 <!-- Locations Table -->
+<h4>Group Preferred Locations</h4>
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>

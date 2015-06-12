@@ -25,25 +25,13 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :user_name, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :user_name, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :password, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :password, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
     <%= f.label :photo, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.text_field :photo, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :team_name, class: "col-sm-2 control-label" %>
+    <%= f.label "Group", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.text_field :team_name, class: "form-control" %>
     </div>
@@ -51,19 +39,19 @@
   <div class="form-group">
     <%= f.label :role, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :role, class: "form-control" %>
+      <%= f.select(:role, options_for_select([["Player", "Player"], ["Captain", "Captain"]]), class: "form-control") %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :gender, class: "col-sm-2 control-label" %>
+    <%= f.label "Sex", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :gender, class: "form-control" %>
+      <%= f.select(:gender, options_for_select([["Female", "Female"], ["Male", "Male"]]), {include_blank: true}, class: "form-control") %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :age_category, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :age_category, class: "form-control" %>
+    <%= f.select(:age_category, options_for_select([["Adult", "Adult"], ["Senior", "Senior"], ["Under 18", "Under 18"]]), class: "form-control") %>
     </div>
   </div>
   <div class="form-group">
@@ -73,19 +61,7 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :record_ind, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.number_field :record_ind, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :record_team, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.number_field :record_team, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :phone_num, class: "col-sm-2 control-label" %>
+    <%= f.label "Phone", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.text_field :phone_num, class: "form-control" %>
     </div>
@@ -97,39 +73,39 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :day_pref1, class: "col-sm-2 control-label" %>
+    <%= f.label "Day: 1st Preference", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :day_pref1, class: "form-control" %>
+      <%= f.select(:day_pref1, options_for_select([["Mon", "Mon"], ["Tue", "Tue"], ["Wed", "Wed"], ["Thu", "Thu"], ["Fri", "Fri"], ["Sat", "Sat"], ["Sun", "Sun"], ["Anyday", "Anyday"]]), {include_blank: true}, class: "form-control") %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :time_pref1, class: "col-sm-2 control-label" %>
+    <%= f.label "Time: 1st Preference", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :time_pref1, class: "form-control" %>
+      <%= f.select(:time_pref1, options_for_select([["Morning", "Morning"], ["Midday", "Midday"], ["Afternoon", "Afternoon"], ["Anytime", "Anytime"]]), {include_blank: true}, class: "form-control") %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :time_pref2, class: "col-sm-2 control-label" %>
+    <%= f.label "Day: 2nd Preference", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :time_pref2, class: "form-control" %>
+      <%= f.select(:day_pref2, options_for_select([["Mon", "Mon"], ["Tue", "Tue"], ["Wed", "Wed"], ["Thu", "Thu"], ["Fri", "Fri"], ["Sat", "Sat"], ["Sun", "Sun"], ["Anyday", "Anyday"]]), {include_blank: true}, class: "form-control") %>
+    </div>
+  </div>
+    <div class="form-group">
+    <%= f.label "Time: 2nd Preference", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.select(:time_pref2, options_for_select([["Morning", "Morning"], ["Midday", "Midday"], ["Afternoon", "Afternoon"], ["Anytime", "Anytime"]]), {include_blank: true}, class: "form-control") %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :remember_token, class: "col-sm-2 control-label" %>
+    <!-- <%= f.label :created_at, class: "col-sm-2 control-label" %> -->
     <div class="col-sm-10">
-      <%= f.text_field :remember_token, class: "form-control" %>
+      <%= f.hidden_field :created_at, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :created_at, class: "col-sm-2 control-label" %>
+    <!-- <%= f.label :updated_at, class: "col-sm-2 control-label" %> -->
     <div class="col-sm-10">
-      <%= f.datetime_select :created_at, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :updated_at, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.datetime_select :updated_at, class: "form-control" %>
+      <%= f.hidden_field :updated_at, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">

@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
   # GET /locations/new - via import
   def import
     Location.import(params[:file])
-    redirect_to root_url, notice: "Locations imported successfully."
+    redirect_to locations_path, notice: "Locations imported successfully."
   end
 
   # GET /locations/1/edit
