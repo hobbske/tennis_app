@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612171243) do
+ActiveRecord::Schema.define(version: 20150612185857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,10 @@ ActiveRecord::Schema.define(version: 20150612171243) do
     t.integer  "roster_max"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "user_id"
   end
+
+  add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "address"
@@ -54,11 +57,12 @@ ActiveRecord::Schema.define(version: 20150612171243) do
     t.integer  "match_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "group_id"
+    t.integer  "user_id"
   end
 
   add_index "playermatches", ["match_id"], name: "index_playermatches_on_match_id", using: :btree
   add_index "playermatches", ["player_id"], name: "index_playermatches_on_player_id", using: :btree
+  add_index "playermatches", ["user_id"], name: "index_playermatches_on_user_id", using: :btree
 
   create_table "players", force: :cascade do |t|
     t.string   "first_name"
@@ -109,6 +113,8 @@ ActiveRecord::Schema.define(version: 20150612171243) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "groups", "users"
   add_foreign_key "playermatches", "matches"
   add_foreign_key "playermatches", "players"
+  add_foreign_key "playermatches", "users"
 end

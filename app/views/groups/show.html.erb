@@ -1,39 +1,38 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Group name:</strong>
-  <%= @group.group_name %>
-</p>
+<div class="page-header">
+  <%= link_to groups_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_group_path(@group), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <p id="notice"><%= notice %></p>
+  <h3> Profile: <strong><%= @group_name %></strong></h3>
+</div>
 
-<p>
-  <strong>Season:</strong>
-  <%= @group.season %>
-</p>
+<dl class="dl-horizontal">
 
-<p>
-  <strong>Year:</strong>
-  <%= @group.year %>
-</p>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @group.gender %>
-</p>
+  <dt>Group Name:</dt>
+  <dd><%= @group.group_name %></dd>
 
-<p>
-  <strong>Skill level:</strong>
-  <%= @group.skill_level %>
-</p>
+  <dt>Gender:</dt>
+  <dd><%= @group.gender %></dd>
 
-<p>
-  <strong>Age category:</strong>
-  <%= @group.age_category %>
-</p>
+  <dt>Skill Level:</dt>
+  <dd><%= @group.skill_level %></dd>
 
-<p>
-  <strong>Roster max:</strong>
-  <%= @group.roster_max %>
-</p>
+  <dt>Age Category:</dt>
+  <dd><%= @group.age_category %></dd>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+  <dt>Maximum Roster Size:</dt>
+  <dd><%= @group.roster_max %></dd>
+
+  <br>
+
+  <dt></dt>
+  <dd><span id="destroy_player_profile"><%= link_to 'Delete Group', @group, method: :delete, data: { confirm: 'Are you sure? This cannot be undone.' } %></span></dd>
+
+</dl>
