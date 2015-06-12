@@ -16,10 +16,10 @@
             <th>Last Name</th>
             <th>1st Pref</th>
             <th>2nd Pref</th>
-            <th>Call</th>
+            <th>Phone</th>
             <th>Email</th>
-            <th>Snd Txt From</th>
-            <th>Snd Txt From</th>
+            <th>Text</th>
+            <th>Text</th>
             <th>Level</th>
             <th>Team(s)</th>
             <th>Win/Loss</th>
@@ -39,16 +39,16 @@
             <td><%= player.last_name %></td>
             <td><%= player.day_pref1 %> (<%= player.time_pref1 %>)</td>
             <td><%= player.day_pref2 %> (<%= player.time_pref2 %>)</td>
-            <td><a href="tel:<%= player.phone_num %>"> <%= player.phone_num %></a></td>
-            <td><a href="mailto:<%=player.email%>?subject=Do you want to play tennis on <%=player.day_pref1%> (<%=player.time_pref1%>) or <%=player.day_pref2%> (<%=player.time_pref2%>)?"> <%= player.email %></a></td>
+            <td><a href="tel:<%= player.phone_num %>">Call</a></td>
+            <td><a href="mailto:<%=player.email%>?subject=Do you want to play tennis on <%=player.day_pref1%> (<%=player.time_pref1%>) or <%=player.day_pref2%> (<%=player.time_pref2%>)?">Email</a></td>
             <td><a href="sms:/ <%= player.phone_num %> /&body=Do you want to play tennis on <%=player.day_pref1%> (<%=player.time_pref1%>) or <%=player.day_pref2%> (<%=player.time_pref2%>)? ">iPhone</a></td>
             <td><a href="sms:/ <%= player.phone_num %> /?body=Do you want to play tennis on <%=player.day_pref1%> (<%=player.time_pref1%>) or <%=player.day_pref2%> (<%=player.time_pref2%>)? ">Android</a></td>
             <td><%= player.skill_level %></td>
             <td><%= player.team_name %></td>
             <td><%= player.record_ind %></td>
 
-            <td><%= link_to 'Edit', edit_player_path(player) %></td>
-            <td><%= link_to 'Delete', player, method: :delete, data: { confirm: 'Are you sure? Deletes cannot be undone.' } %></td>
+            <!-- <td><%= link_to 'Edit', edit_player_path(player) %></td>
+            <td><%= link_to 'Delete', player, method: :delete, data: { confirm: 'Are you sure? Deletes cannot be undone.' } %></td> -->
       <% end %>
     </tbody>
   </table>

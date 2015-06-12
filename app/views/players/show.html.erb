@@ -62,4 +62,9 @@
   <dt>Last Modified:</dt>
   <dd><%= @player.updated_at %></dd>
 
+  <br>
+
+  <dt><strong>Delete Profile:</strong></dt>
+  <dd><span id="destroy_player_profile"><%= link_to 'Delete', @player, method: :delete, data: { confirm: 'Are you sure? This cannot be undone.' } %></span></dd>
+
 </dl>
