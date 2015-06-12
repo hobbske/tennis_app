@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609153030) do
+ActiveRecord::Schema.define(version: 20150612164855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "group_name"
+    t.string   "season"
+    t.string   "year"
+    t.string   "gender"
+    t.string   "skill_level"
+    t.string   "age_category"
+    t.integer  "roster_max"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string   "address"
@@ -42,6 +54,7 @@ ActiveRecord::Schema.define(version: 20150609153030) do
     t.integer  "match_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "group_id"
   end
 
   add_index "playermatches", ["match_id"], name: "index_playermatches_on_match_id", using: :btree
