@@ -11,8 +11,6 @@
     <thead>
       <tr>
         <th>Group name</th>
-        <th>Season</th>
-        <th>Year</th>
         <th>Gender</th>
         <th>Skill level</th>
         <th>Age category</th>
@@ -23,8 +21,6 @@
     <tbody>
       <%= content_tag_for(:tr, @groups) do |group| %>
           <td><%= group.group_name %></td>
-          <td><%= group.season %></td>
-          <td><%= group.year %></td>
           <td><%= group.gender %></td>
           <td><%= group.skill_level %></td>
           <td><%= group.age_category %></td>
