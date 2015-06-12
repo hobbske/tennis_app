@@ -1,45 +1,52 @@
-<%= form_for(@group) do |f| %>
+
+<%= form_for(@group, html: { class: "form-horizontal", role: "form" }) do |f| %>
   <% if @group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h4>
 
       <ul>
-      <% @group.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :group_name %><br>
-    <%= f.text_field :group_name %>
+  <div class="form-group">
+    <%= f.label :group_name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :group_name, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :season %><br>
-    <%= f.text_field :season %>
+  <div class="form-group">
+    <%= f.label "Gender", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.select(:gender, options_for_select([["Female", "Female"], ["Male", "Male"]]), {include_blank: true}, class: "form-control") %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :year %><br>
-    <%= f.text_field :year %>
+  <div class="form-group">
+    <%= f.label :age_category, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%= f.select(:age_category, options_for_select([["Adult", "Adult"], ["Senior", "Senior"], ["Under 18", "Under 18"]]), {include_blank: true}, class: "form-control") %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
+  <div class="form-group">
+    <%= f.label :skill_level, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :skill_level, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :skill_level %><br>
-    <%= f.text_field :skill_level %>
+  <div class="form-group">
+    <%= f.label "Max Roster Size", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :roster_max, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :age_category %><br>
-    <%= f.text_field :age_category %>
-  </div>
-  <div class="field">
-    <%= f.label :roster_max %><br>
-    <%= f.number_field :roster_max %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>

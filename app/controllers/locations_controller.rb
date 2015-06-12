@@ -19,7 +19,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/new
   def new
-    @location = current_user.locations.build
+    @location = Location.new
   end
 
   # GET /locations/new - via import
