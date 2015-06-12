@@ -1,8 +1,4 @@
 <div class="page-header">
-  <%= link_to new_location_path, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    New Location
-  <% end %>
   <h3>Locations w/in 10 miles</h3>
 
 </div>
@@ -107,6 +103,11 @@
 
 <!-- Locations Table -->
 <h4>Group Preferred Locations</h4>
+
+<%= link_to new_location_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Location
+<% end %>
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead>

@@ -30,6 +30,10 @@ h4 {
   background-color: #B0E57C;
 }
 
+.notice_alert {
+  padding: 10px;
+}
+
 // Superhero 3.2.0
 // Bootswatch
 // -----------------------------------------------------
@@ -65,7 +69,8 @@ h4 {
 .btn {
 
   font-weight: 300;
-  margin-top: 25px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .btn-default {
