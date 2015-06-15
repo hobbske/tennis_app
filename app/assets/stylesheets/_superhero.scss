@@ -16,7 +16,19 @@
 
 #map-canvas {
   height: 400px;
-  width: 100%;
+  width: 90%;
+  margin: auto;
+}
+#map-buttons {
+  width: 90%;
+  margin: auto;
+}
+
+#map-title {
+  width: 90%;
+  margin: auto;
+  font-size: 19px;
+  font-weight: 300px;
 }
 
 h4 {
@@ -32,6 +44,10 @@ h4 {
 
 .notice_alert {
   padding: 10px;
+}
+
+#address-panel {
+  border-color: #B0E57C
 }
 
 // Superhero 3.2.0

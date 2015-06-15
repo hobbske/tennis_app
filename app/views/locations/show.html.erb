@@ -7,46 +7,18 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1><%= @location.address %></h1>
+  <h2><%= @location.address %></h2>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Location Name:</dt>
-  <dd><%= @location.address %></dd>
 
-  <dt>Latitude:</dt>
-  <dd><%= @location.latitude %></dd>
 
-  <dt>Longitude:</dt>
-  <dd><%= @location.longitude %></dd>
 
-</dl>
 
-<!-- Map Section -->
-
-<!-- <div id="map_canvas"></div>
-
-<div id="addresses">
-    <div class="address-panel">
-        <h4>Current Location</h4>
-        <address>
-          <%= :currentLocation %>
-        </address>
-    </div>
-
-<div id="addresses">
-    <div class="address-panel">
-        <h4>Destination</h4>
-        <address>
-          <%= @location.address %>
-        </address>
-</div> -->
 
   <!-- Google Maps and Places API -->
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
 
-<!-- Map Creation -->
-<h4>Driving Directions</h4>
+
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -64,7 +36,7 @@
         var marker = new google.maps.Marker({
             position: results[i].geometry.location,
             map: map,
-            icon: "t_racket.png"
+            icon: "/tennisball_marker.png"
         });
       }
   }
@@ -73,8 +45,8 @@
   function performSearch() {
     var request = {
         bounds: map.getBounds(),
-        name: location.address,
-        icon: "t_racket.png"
+        name: "<%=@location.address%>",
+        icon: "/tennisball_marker.png"
     }
   service.nearbySearch(request, handleSearchResults);
 
@@ -85,7 +57,7 @@
     currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
     var mapProp = {
                   center: currentLocation,
-                  zoom: 14,
+                  zoom: 12,
                   mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
@@ -124,11 +96,46 @@
 </script>
 
 <div id="map-canvas"></div>
+<div id="map-buttons">
 <button id="refresh">Refresh</button>
 <button id="toggle_traffic">Traffic</button>
-<button id="toggle_weather">Weather</button>
+</div>
 <!-- END Google Map - VERSION2 -->
 
 
+<!-- Directions Creation
+<h4>Driving Directions<h4>
 
+<div>
+<strong>Start: </strong>
+<select id="start" onchange="calcRoute();">
+  <option value="chicago, il">Chicago</option>
+  <option value="st louis, mo">St Louis</option>
+  <option value="joplin, mo">Joplin, MO</option>
+  <option value="oklahoma city, ok">Oklahoma City</option>
+  <option value="amarillo, tx">Amarillo</option>
+  <option value="gallup, nm">Gallup, NM</option>
+  <option value="flagstaff, az">Flagstaff, AZ</option>
+  <option value="winona, az">Winona</option>
+  <option value="kingman, az">Kingman</option>
+  <option value="barstow, ca">Barstow</option>
+  <option value="san bernardino, ca">San Bernardino</option>
+  <option value="los angeles, ca">Los Angeles</option>
+</select>
+<strong>End: </strong>
+<select id="end" onchange="calcRoute();">
+  <option value="chicago, il">Chicago</option>
+  <option value="st louis, mo">St Louis</option>
+  <option value="joplin, mo">Joplin, MO</option>
+  <option value="oklahoma city, ok">Oklahoma City</option>
+  <option value="amarillo, tx">Amarillo</option>
+  <option value="gallup, nm">Gallup, NM</option>
+  <option value="flagstaff, az">Flagstaff, AZ</option>
+  <option value="winona, az">Winona</option>
+  <option value="kingman, az">Kingman</option>
+  <option value="barstow, ca">Barstow</option>
+  <option value="san bernardino, ca">San Bernardino</option>
+  <option value="los angeles, ca">Los Angeles</option>
+</select>
+</div> -->
 

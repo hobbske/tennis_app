@@ -1,12 +1,8 @@
-<div class="page-header">
-  <h3>Locations w/in 10 miles</h3>
 
-</div>
+<h4>Locations w/in 10 miles</h4>
 
-  <!-- Google Maps and Places API (https://www.youtube.com/watch?v=keO6egndYrE) -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
-
-
+<!-- Google Maps and Places API (https://www.youtube.com/watch?v=keO6egndYrE) -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
 <!-- jquery for google maps api -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript">
@@ -45,7 +41,7 @@
     // Map Properties
     var mapProp = {
                   center: currentLocation,
-                  zoom: 11,
+                  zoom: 10,
                   mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     // Generates Map
@@ -96,9 +92,10 @@
 </script>
   <!-- Map feature buttons -->
   <div id="map-canvas"></div>
+  <div id="map-buttons">
   <button id="refresh">Refresh</button>
   <button id="toggle_traffic">Traffic</button>
-  <button id="toggle_weather">Weather</button>
+  </div>
 <!-- END Google Map -->
 
 <!-- Locations Table -->
@@ -113,8 +110,6 @@
     <thead>
       <tr>
             <th>Address</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
             <th></th>
         <th></th>
         <th></th>
@@ -124,8 +119,6 @@
     <tbody>
       <%= content_tag_for(:tr, @locations) do |location| %>
             <td><%= location.address %></td>
-            <td><%= location.latitude %></td>
-            <td><%= location.longitude %></td>
             <td><%= link_to 'View', location %></td>
             <td><%= link_to 'Edit', edit_location_path(location) %></td>
             <td><%= link_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
