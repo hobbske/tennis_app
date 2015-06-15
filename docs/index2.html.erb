@@ -39,12 +39,11 @@
             <td><%= player.last_name %></td>
             <td><%= player.day_pref1 %> (<%= player.time_pref1 %>)</td>
             <td><%= player.day_pref2 %> (<%= player.time_pref2 %>)</td>
-            <!-- <td><select>
-              <option value="tel:<%= player.phone_num%>">Call</option>
-              <option value="mailto:<%=player.email%>?subject=Do you want to play tennis on <%=player.day_pref1%> (<%=player.time_pref1%>) or <%=player.day_pref2%> (<%=player.time_pref2%>)?">Email</option>
-              <option value="sms:/ <%= player.phone_num %> /&body=Do you want to play tennis on <%=player.day_pref1%> (<%=player.time_pref1%>) or <%=player.day_pref2%> (<%=player.time_pref2%>)?">iPhone</option>
-              <option value="sms:/ <%= player.phone_num %> /?body=Do you want to play tennis on <%=player.day_pref1%> (<%=player.time_pref1%>) or <%=player.day_pref2%> (<%=player.time_pref2%>)?">Android</option>
-            </select></td> -->
+
+
+            <td><select><option value="tel:<%= player.phone_num">Call</option><option value="mailto:<%=player.email%>?subject=Do you want to play tennis on <%=player.day_pref1%> (<%=player.time_pref1%>) or <%=player.day_pref2%> (<%=player.time_pref2%>)?">Email</option><option value="sms:/ <%= player.phone_num %> /&body=Do you want to play tennis on <%=player.day_pref1%> (<%=player.time_pref1%>) or <%=player.day_pref2%> (<%=player.time_pref2%>)?">iPhone</option><option value="sms:/ <%= player.phone_num %> /?body=Do you want to play tennis on <%=player.day_pref1%> (<%=player.time_pref1%>) or <%=player.day_pref2%> (<%=player.time_pref2%>)?">Android</option></select></td>
+
+
             <td><a href="tel:<%= player.phone_num %>">Call</a></td>
             <td><a href="mailto:<%=player.email%>?subject=Do you want to play tennis on <%=player.day_pref1%> (<%=player.time_pref1%>) or <%=player.day_pref2%> (<%=player.time_pref2%>)?">Email</a></td>
             <td><a href="sms:/ <%= player.phone_num %> /&body=Do you want to play tennis on <%=player.day_pref1%> (<%=player.time_pref1%>) or <%=player.day_pref2%> (<%=player.time_pref2%>)? ">iPhone</a></td>
